@@ -21,6 +21,7 @@ namespace SnakesOnAGames
         Vector2 pellet = new Vector2(2, 2);
         List<Vector2> snake = new List<Vector2>();
         Texture2D snaketexture;
+        Vector2 velocity = new Vector2(0, -1);
         
 
 
@@ -80,7 +81,30 @@ namespace SnakesOnAGames
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+
             // TODO: Add your update logic here
+            KeyboardState kb = Keyboard.GetState();
+            if (kb.IsKeyDown(Keys.Up))
+            {
+                velocity = new Vector2(0, -1);
+                snake[0] += velocity;
+            }
+            else if (kb.IsKeyDown(Keys.Down))
+            {
+                velocity = new Vector2(0, 1);
+                snake[0] += velocity;
+            }
+            else if (kb.IsKeyDown(Keys.Left))
+            {
+                velocity = new Vector2(-1, 0);
+                snake[0] += velocity;
+            }
+            else if (kb.IsKeyDown(Keys.Right))
+            {
+                velocity = new Vector2(1, 0);
+                snake[0] += velocity;
+            }
+
 
             base.Update(gameTime);
         }
