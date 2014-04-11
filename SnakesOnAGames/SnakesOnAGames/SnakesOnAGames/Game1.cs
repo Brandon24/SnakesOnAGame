@@ -22,6 +22,9 @@ namespace SnakesOnAGames
         List<Vector2> snake = new List<Vector2>();
         Texture2D snaketexture;
         Vector2 velocity = new Vector2(0, -1);
+
+        float snakeMovementTimer = 0f;
+        float snakeMovementTime = 120f; // 60 ms between updates
         
 
 
@@ -83,27 +86,30 @@ namespace SnakesOnAGames
 
 
             // TODO: Add your update logic here
+
             KeyboardState kb = Keyboard.GetState();
+
             if (kb.IsKeyDown(Keys.Up))
             {
                 velocity = new Vector2(0, -1);
-                snake[0] += velocity;
             }
             else if (kb.IsKeyDown(Keys.Down))
             {
                 velocity = new Vector2(0, 1);
-                snake[0] += velocity;
             }
             else if (kb.IsKeyDown(Keys.Left))
             {
                 velocity = new Vector2(-1, 0);
-                snake[0] += velocity;
             }
             else if (kb.IsKeyDown(Keys.Right))
             {
                 velocity = new Vector2(1, 0);
-                snake[0] += velocity;
             }
+
+            snake[0] += velocity;
+
+            
+
 
 
             base.Update(gameTime);
