@@ -49,8 +49,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Snake2.bmp">
-      <Name>Snake2</Name>
+    <Compile Include="pellet.BMP">
+      <Name>pellet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
